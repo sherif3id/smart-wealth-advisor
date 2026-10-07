@@ -1,0 +1,78 @@
+{
+  "model_version": "2.0.0",
+  "feature_contract_version": "monthly-financial-v2",
+  "trained_at": "2026-10-07T09:20:58.358333+00:00",
+  "runtime": {
+    "python": "3.13.16",
+    "numpy": "2.2.2",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.6.1",
+    "joblib": "1.4.2"
+  },
+  "dataset": {
+    "sha256": "0eb7511a8bbfcc97a885ef9fca2c2fa5ea9952cefdac6a50348a8b4e2355ff29",
+    "rows": 144,
+    "users": 12,
+    "first_month": "2025-01-01",
+    "last_month": "2025-12-01",
+    "synthetic": true,
+    "classification": "synthetic-demo",
+    "production_eligible": false
+  },
+  "validation_strategy": "chronological train/validation/test",
+  "partitions": {
+    "train_rows": 84,
+    "validation_rows": 24,
+    "test_rows": 36,
+    "train_last_month": "2025-07-01",
+    "validation_last_month": "2025-09-01",
+    "test_first_month": "2025-10-01"
+  },
+  "model_selection_metric": "validation_mae",
+  "selected_expense_model": "linear",
+  "validation_metrics": {
+    "linear": {
+      "mae": 326.61191913225554,
+      "rmse": 389.88727254098126,
+      "r2": 0.9381809819452972
+    },
+    "random_forest": {
+      "mae": 414.7360504083205,
+      "rmse": 506.16981905178324,
+      "r2": 0.8958074952865964
+    },
+    "gradient_boosting": {
+      "mae": 423.9277603594325,
+      "rmse": 507.1098004513635,
+      "r2": 0.8954201551038374
+    }
+  },
+  "selected_model_test_metrics": {
+    "mae": 296.93738561757795,
+    "rmse": 387.7937726059285,
+    "r2": 0.9358074377156003
+  },
+  "cluster_silhouette": 0.5774338211559646,
+  "cluster_labels": {
+    "0": "Debt-heavy",
+    "3": "Saver",
+    "1": "High Spender",
+    "2": "Balanced"
+  },
+  "feature_names": [
+    "income",
+    "food",
+    "transport",
+    "shopping",
+    "bills",
+    "housing",
+    "health",
+    "entertainment",
+    "monthly_debt_payments",
+    "monthly_surplus",
+    "expense_ratio",
+    "saving_ratio",
+    "debt_service_ratio",
+    "discretionary_ratio"
+  ]
+}

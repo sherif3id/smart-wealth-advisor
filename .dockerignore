@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.env
+.env.*
+!.env.example
+backend
+ml-service
+tests
+test-results
+playwright-report
+*.log

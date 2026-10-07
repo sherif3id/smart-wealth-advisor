@@ -1,0 +1,3 @@
+import {NextRequest,NextResponse} from 'next/server';
+export const runtime='nodejs';export const dynamic='force-dynamic';
+export async function GET(req:NextRequest){const secret=process.env.CRON_SECRET;if(!secret||req.headers.get('authorization')!==`Bearer ${secret}`)return NextResponse.json({error:{code:'UNAUTHORIZED',message:'Invalid cron authorization'}},{status:401});try{const r=await fetch(`${process.env.BACKEND_URL||'http://127.0.0.1:8000'}/notifications/dispatch`,{method:'POST',headers:{'x-cron-secret':secret}});return new NextResponse(await r.text(),{status:r.status,headers:{'content-type':'application/json'}})}catch{return NextResponse.json({error:{code:'BACKEND_UNAVAILABLE',message:'Notification dispatcher unavailable'}},{status:503})}}

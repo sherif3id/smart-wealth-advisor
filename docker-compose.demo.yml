@@ -1,0 +1,7 @@
+# Development/demo override only. Never use this file for production.
+# It explicitly permits artifacts marked synthetic-demo; the UI displays that status.
+services:
+  ml-service:
+    environment:
+      APP_ENV: development
+      ML_ALLOW_SYNTHETIC_DEMO: "true"
